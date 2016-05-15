@@ -134,6 +134,10 @@ controllers.controller('BrowseCtrl', function ($scope) {
             'quarter': 'Spring'
         }
     ];
-    
+
     $scope.courses = dummyData;
 });
+
+controllers.controller('NavCtrl', function ($scope, $state) {
+    $scope.current = $state.current.name;
+})

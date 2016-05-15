@@ -17,7 +17,7 @@ var app = angular.module("app", [
             templateUrl: "templates/home.html"
         })
         .state('course', {
-            url: "/course",
+            url: "/course/:courseId",
             controller: "CourseCtrl",
             templateUrl: "templates/course.html"
         })

@@ -9,7 +9,7 @@
         <tr ng-repeat="item in courses">
             <td>{{item.year}}</td>
             <td>{{item.quarter}}</td>
-            <td>{{item.course_name}}</td>
+            <td><a ui-sref="course({courseId: item.course_id})">{{item.course_name}}</a></td>
             <td>{{item.instructor_name}}</td>
         </tr>
     </table>

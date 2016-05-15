@@ -3,7 +3,7 @@
     <div>
         <div class="card card-block" ng-repeat="item in recent">
             <small>{{item.course.year}}, {{item.course.quarter}}, {{item.course.instructor_name}}</small>
-            <h4 class="card-title"><a ui-sref="course">{{item.course.course_name}}</a></h4>
+            <h4 class="card-title"><a ui-sref="course({courseId: item.course.course_id})">{{item.course.course_name}}</a></h4>
 
             <div>
                 <img src="image/person-placeholder.png" class="img-circle profile" />

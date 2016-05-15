@@ -1,0 +1,29 @@
+<div class="card card-block add_review_form" ng-controller="ReviewFormCtrl">
+    <form>
+        <div>
+            <img src="image/person-placeholder.png" class="img-circle profile" />
+            <span>Me</span>
+        </div>
+
+        <div class="form-group">
+            <label class="c-input c-checkbox">
+                <input type="checkbox" ng-model="review.isAnonymous">
+                <span class="c-indicator"></span>
+                Publish anonymously
+            </label>
+        </div>
+
+        <div class="form-group">
+            <div>
+                <label for="rating">Overall Experience</label>
+            </div>
+            <input-stars id="rating" max="5" ng-model="review.rating"></input-stars>
+        </div>
+
+        <div class="form-group">
+            <label for="txtReview">Review</label>
+            <textarea class="form-control" id="txtReview" rows="3" ng-model="review.review"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" ng-click="submitForm()">Submit</button>
+    </form>
+</div>

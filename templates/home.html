@@ -1,0 +1,25 @@
+<div class="container" ng-controller="homeCtrl">
+    <div>
+        <form>
+            <input type="text" class="form-control" placeholder="Search..." name="query" id="query">
+        </form>
+    </div>
+
+    <p/>
+    <div>
+        <div class="card card-block" ng-repeat="item in recent">
+            <small>{{item.course.year}}, {{item.course.quarter}}, {{item.course.instructor_name}}</small>
+            <h4 class="card-title"><a ui-sref="course">{{item.course.course_name}}</a></h4>
+
+            <div>
+                <img src="image/person-placeholder.png" class="img-circle profile" />
+                <span>{{item.review.author_name}}</span>
+            </div>
+            <p class="card-text">{{item.review.review}}</p>
+
+            <a href="#" class="card-link">Read more</a>
+            <a href="#" class="card-link">Another link</a>
+        </div>
+    </div>
+</div>
+<div ui-view></div>

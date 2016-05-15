@@ -1,0 +1,26 @@
+<div ng-controller="CourseCtrl" class="container">
+    <div class="card card-block">
+        <div>{{course.year}}, {{course.quarter}}, {{course.instructor_name}}</div>
+        <h4 class="card-title">{{course.course_name}}</h4>
+    </div>
+
+    <button type="button" class="btn" ng-click="isBtnReviewClicked=true;">
+        <span class="octicon octicon-pencil"></span>
+        <span>Write a review</span>
+    </button>
+    <div ng-show="isBtnReviewClicked" ng-include="'templates/add_review_form.html'">
+    </div>
+
+    <hr/>
+    <div ng-repeat="review in reviews">
+        <div>
+            <img src="image/person-placeholder.png" class="img-circle profile" />
+            <span>{{review.author_name}}</span>
+        </div>
+        <p class="card-text">{{review.review}}</p>
+        <hr ng-if="!$last"/>
+    </div>
+    <hr/>
+
+</div>
+<div ui-view></div>

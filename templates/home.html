@@ -1,11 +1,5 @@
 <div class="container" ng-controller="homeCtrl">
-    <div>
-        <form>
-            <input type="text" class="form-control" placeholder="Search..." name="query" id="query">
-        </form>
-    </div>
-
-    <p/>
+    <h6>New Course Reviews</h6>
     <div>
         <div class="card card-block" ng-repeat="item in recent">
             <small>{{item.course.year}}, {{item.course.quarter}}, {{item.course.instructor_name}}</small>
@@ -15,10 +9,13 @@
                 <img src="image/person-placeholder.png" class="img-circle profile" />
                 <span>{{item.review.author_name}}</span>
             </div>
-            <p class="card-text">{{item.review.review}}</p>
 
-            <a href="#" class="card-link">Read more</a>
-            <a href="#" class="card-link">Another link</a>
+            <p class="card-text">
+                {{item.review.review | limitTo: previewLimit}}
+                <span ng-if="item.review.review.length > previewLimit">...<br/><a href="#" class="card-link">Read More</a></span>
+            </p>
+
+            <small class="text-muted">Written {{item.review.date_created | date:fullDate}}</small>
         </div>
     </div>
 </div>

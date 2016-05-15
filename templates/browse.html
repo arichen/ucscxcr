@@ -1,0 +1,17 @@
+<div ng-controller="BrowseCtrl" class="container">
+    <table class="table">
+        <tr>
+            <th>Year</th>
+            <th>Quarter</th>
+            <th>Course Name</th>
+            <th>Instructor</th>
+        </tr>
+        <tr ng-repeat="item in courses">
+            <td>{{item.year}}</td>
+            <td>{{item.quarter}}</td>
+            <td>{{item.course_name}}</td>
+            <td>{{item.instructor_name}}</td>
+        </tr>
+    </table>
+</div>
+<div ui-view></div>

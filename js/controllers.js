@@ -5,6 +5,8 @@
 var controllers = angular.module('appControllers', []);
 
 controllers.controller('homeCtrl', function ($scope) {
+    $scope.previewLimit = 100;
+
     var dummyRecent = [
         {
             'course': {
@@ -17,7 +19,8 @@ controllers.controller('homeCtrl', function ($scope) {
             'review': {
                 'author_id': '3',
                 'author_name': 'Bob 3',
-                'review': 'Good good good good good'
+                'review': 'Good good good good good',
+                'date_created': '2012-04-23T18:25:43.511Z'
             }
         },
         {
@@ -31,7 +34,8 @@ controllers.controller('homeCtrl', function ($scope) {
             'review': {
                 'author_id': '3',
                 'author_name': 'Bob 3',
-                'review': 'Good good good good good'
+                'review': 'Good good good good good',
+                'date_created': '2012-04-23T18:25:43.511Z'
             }
         },
         {
@@ -45,7 +49,8 @@ controllers.controller('homeCtrl', function ($scope) {
             'review': {
                 'author_id': '3',
                 'author_name': 'Bob 3',
-                'review': 'Good good good good good'
+                'review': 'Good good good good good',
+                'date_created': '2012-04-23T18:25:43.511Z'
             }
         },
     ];
@@ -96,4 +101,39 @@ controllers.controller('ReviewFormCtrl', function ($scope) {
     $scope.submitForm = function () {
         console.log($scope.review);
     }
+});
+
+controllers.controller('BrowseCtrl', function ($scope) {
+    var dummyData = [
+        {
+            'course_id': '1',
+            'course_name': 'Course Name A',
+            'instructor_name': 'John Doe',
+            'year': 2016,
+            'quarter': 'Spring'
+        },
+        {
+            'course_id': '1',
+            'course_name': 'Course Name A',
+            'instructor_name': 'John Doe',
+            'year': 2016,
+            'quarter': 'Spring'
+        },
+        {
+            'course_id': '1',
+            'course_name': 'Course Name A',
+            'instructor_name': 'John Doe',
+            'year': 2016,
+            'quarter': 'Spring'
+        },
+        {
+            'course_id': '1',
+            'course_name': 'Course Name A',
+            'instructor_name': 'John Doe',
+            'year': 2016,
+            'quarter': 'Spring'
+        }
+    ];
+    
+    $scope.courses = dummyData;
 });

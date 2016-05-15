@@ -21,5 +21,10 @@ var app = angular.module("app", [
             controller: "CourseCtrl",
             templateUrl: "templates/course.html"
         })
+        .state('browse', {
+            url: "/browse",
+            controller: "BrowseCtrl",
+            templateUrl: "templates/browse.html"
+        })
     ;
 });

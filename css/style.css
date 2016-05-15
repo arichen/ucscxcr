@@ -1,6 +1,9 @@
 body {
     padding-top: 5rem;
 }
+#searchBar {
+    margin-bottom:50px;
+}
 .profile {
     border: 1px solid lightgray;
     width: 40px;

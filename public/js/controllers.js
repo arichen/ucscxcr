@@ -10,7 +10,6 @@ controllers.controller('homeCtrl', ['$scope', 'Reviews', function ($scope, Revie
     Reviews.get()
         .success(function (data) {
             $scope.recent = data;
-            console.log(data);
         });
 }]);
 
@@ -59,40 +58,11 @@ controllers.controller('ReviewFormCtrl', function ($scope) {
     }
 });
 
-controllers.controller('BrowseCtrl', function ($scope) {
-    var dummyData = [
-        {
-            'course_id': '1',
-            'course_name': 'Course Name A',
-            'instructor_name': 'John Doe',
-            'year': 2016,
-            'quarter': 'Spring'
-        },
-        {
-            'course_id': '1',
-            'course_name': 'Course Name A',
-            'instructor_name': 'John Doe',
-            'year': 2016,
-            'quarter': 'Spring'
-        },
-        {
-            'course_id': '1',
-            'course_name': 'Course Name A',
-            'instructor_name': 'John Doe',
-            'year': 2016,
-            'quarter': 'Spring'
-        },
-        {
-            'course_id': '1',
-            'course_name': 'Course Name A',
-            'instructor_name': 'John Doe',
-            'year': 2016,
-            'quarter': 'Spring'
-        }
-    ];
-
-    $scope.courses = dummyData;
-});
+controllers.controller('BrowseCtrl', ['$scope', 'Courses', function ($scope, Courses) {
+    Courses.get().success(function (data) {
+        $scope.courses = data;
+    });
+}]);
 
 controllers.controller('NavCtrl', function ($scope, $state) {
     $scope.current = $state.current.name;

@@ -1,7 +1,7 @@
 <div ng-controller="CourseCtrl" class="container">
     <div class="card card-block">
-        <div>{{course.year}}, {{course.quarter}}, {{course.instructor_name}}</div>
-        <h4 class="card-title">{{course.course_name}}</h4>
+        <div>{{course.year}}, {{course.quarter}}, {{course.instructor.name}}</div>
+        <h4 class="card-title">{{course.name}}</h4>
     </div>
 
     <button type="button" class="btn" ng-click="isBtnReviewClicked=true;">
@@ -15,9 +15,9 @@
     <div ng-repeat="review in reviews">
         <div>
             <img src="image/person-placeholder.png" class="img-circle profile" />
-            <span>{{review.author_name}}</span>
+            <span>{{review.author.name}}</span>
         </div>
-        <p class="card-text">{{review.review}}</p>
+        <p class="card-text">{{review.text}}</p>
         <hr ng-if="!$last"/>
     </div>
     <hr/>

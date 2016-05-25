@@ -96,6 +96,20 @@ router.get('/api/reviews', function (req, res, next) {
 
 });
 
+router.get('/api/courses', function (req, res, next) {
+
+  Course
+      .find()
+      .populate('instructor')
+      .exec(function (err, result) {
+        if (err) {
+          res.send(err);
+        }
+        res.json(result);
+      });
+
+});
+
 // application
 router.get('*', function(req, res, next) {
   res.sendFile(__dirname + '/public/index.html'); // load the single view file (angular will handle the page changes on the front-end)

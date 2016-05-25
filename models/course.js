@@ -5,6 +5,7 @@ var schema = mongoose.Schema({
     course_number: String,
     year: Number,
     quarter: String,
+    instructor: { type: mongoose.Schema.Types.ObjectId, ref: 'Instructor' },
     updated: { type: Date, default: Date.now() },
     created: { type: Date, default: Date.now() }
 });

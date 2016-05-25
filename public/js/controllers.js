@@ -4,59 +4,15 @@
 
 var controllers = angular.module('appControllers', []);
 
-controllers.controller('homeCtrl', function ($scope) {
+controllers.controller('homeCtrl', ['$scope', 'Reviews', function ($scope, Reviews) {
     $scope.previewLimit = 100;
-
-    var dummyRecent = [
-        {
-            'course': {
-                'course_id': '1',
-                'course_name': 'Course Name A',
-                'instructor_name': 'John Doe',
-                'year': 2016,
-                'quarter': 'Spring'
-            },
-            'review': {
-                'author_id': '3',
-                'author_name': 'Bob 3',
-                'review': 'Good good good good good',
-                'date_created': '2012-04-23T18:25:43.511Z'
-            }
-        },
-        {
-            'course': {
-                'course_id': '1',
-                'course_name': 'Course Name A',
-                'instructor_name': 'John Doe',
-                'year': 2016,
-                'quarter': 'Spring'
-            },
-            'review': {
-                'author_id': '3',
-                'author_name': 'Bob 3',
-                'review': 'Good good good good good',
-                'date_created': '2012-04-23T18:25:43.511Z'
-            }
-        },
-        {
-            'course': {
-                'course_id': '1',
-                'course_name': 'Course Name A',
-                'instructor_name': 'John Doe',
-                'year': 2016,
-                'quarter': 'Spring'
-            },
-            'review': {
-                'author_id': '3',
-                'author_name': 'Bob 3',
-                'review': 'Good good good good good',
-                'date_created': '2012-04-23T18:25:43.511Z'
-            }
-        },
-    ];
-
-    $scope.recent = dummyRecent;
-});
+    
+    Reviews.get()
+        .success(function (data) {
+            $scope.recent = data;
+            console.log(data);
+        });
+}]);
 
 controllers.controller('CourseCtrl', function ($scope) {
     var dummyCourse = {

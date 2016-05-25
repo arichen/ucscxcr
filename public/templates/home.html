@@ -2,20 +2,20 @@
     <h6>New Course Reviews</h6>
     <div>
         <div class="card card-block" ng-repeat="item in recent">
-            <small>{{item.course.year}}, {{item.course.quarter}}, {{item.course.instructor_name}}</small>
-            <h4 class="card-title"><a ui-sref="course({courseId: item.course.course_id})">{{item.course.course_name}}</a></h4>
+            <small>{{item.course.year}}, {{item.course.quarter}}, {{item.course.instructor.name}}</small>
+            <h4 class="card-title"><a ui-sref="course({courseId: item.course._id})">{{item.course.name}}</a></h4>
 
             <div>
                 <img src="image/person-placeholder.png" class="img-circle profile" />
-                <span>{{item.review.author_name}}</span>
+                <span>{{item.author.username}}</span>
             </div>
 
             <p class="card-text">
-                {{item.review.review | limitTo: previewLimit}}
-                <span ng-if="item.review.review.length > previewLimit">...<br/><a href="#" class="card-link">Read More</a></span>
+                {{item.text | limitTo: previewLimit}}
+                <span ng-if="item.text.length > previewLimit">...<br/><a href="#" class="card-link">Read More</a></span>
             </p>
 
-            <small class="text-muted">Written {{item.review.date_created | date:fullDate}}</small>
+            <small class="text-muted">Written {{item.created | date:fullDate}}</small>
         </div>
     </div>
 </div>

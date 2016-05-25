@@ -4,6 +4,7 @@
 
 var app = angular.module("app", [
     'appControllers',
+    'appServices',
     'ui.router',
     'angular-input-stars'
 ])

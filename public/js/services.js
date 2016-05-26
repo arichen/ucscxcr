@@ -9,9 +9,12 @@ angular.module('appServices', [])
             get : function() {
                 return $http.get('/api/reviews');
             },
-            // create : function(todoData) {
-            //     return $http.post('/api/todos', todoData);
-            // },
+            getById : function (id) {
+                return $http.get('/api/review/' + id);
+            },
+            create : function(data) {
+                return $http.post('/api/review', data);
+            },
             // delete : function(id) {
             //     return $http.delete('/api/todos/' + id);
             // }
@@ -22,6 +25,9 @@ angular.module('appServices', [])
         return {
             get : function () {
                 return $http.get('/api/courses');
+            },
+            getById : function (id) {
+                return $http.get('/api/course/' + id);
             }
         }
     }]);

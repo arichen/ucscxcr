@@ -10,5 +10,6 @@ var schema = mongoose.Schema({
     created: { type: Date, default: Date.now() }
 });
 
-module.exports = mongoose.model('Course', schema);
+schema.index({ 'name' : 'text' });
 
+module.exports = mongoose.model('Course', schema);

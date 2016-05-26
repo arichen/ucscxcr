@@ -13,7 +13,7 @@ controllers.controller('homeCtrl', ['$scope', 'Reviews', function ($scope, Revie
         });
 }]);
 
-controllers.controller('CourseCtrl', function ($scope) {
+controllers.controller('CourseCtrl', ['$scope', '$stateParams', 'Courses', 'Reviews', function ($scope, $stateParams, Courses, Reviews) {
     var dummyCourse = {
         'course_id': '1',
         'course_name': 'Course Name A',
@@ -44,7 +44,7 @@ controllers.controller('CourseCtrl', function ($scope) {
     $scope.reviews = dummyReviews;
 
     $scope.isBtnReviewClicked = false;
-});
+}]);
 
 controllers.controller('ReviewFormCtrl', function ($scope) {
     $scope.review = {

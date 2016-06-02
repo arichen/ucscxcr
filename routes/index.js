@@ -76,11 +76,19 @@ router.get('/api/review/:id', function (req, res, next) {
       });
 });
 
+router.post('/api/review', function (req, res, next) {
+  console.log('Params:', req.params);
+  console.log('Body:', req.body);
+
+  res.json();
+});
+
 router.get('/api/courses', function (req, res, next) {
 
   Course
       .find()
       .populate('instructor')
+      .sort({ updated : -1 })
       .exec(function (err, result) {
         if (err) {
           res.send(err);
@@ -107,7 +115,7 @@ router.get('/api/search', function (req, res, next) {
         }
         res.json(result);
       })
-})
+});
 
 // application
 router.get('*', function(req, res, next) {

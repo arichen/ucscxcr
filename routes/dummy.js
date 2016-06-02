@@ -10,8 +10,8 @@ var router = express.Router();
 router.get('/test', function (req, res, next) {
     // create some dummy users
     var users = [
-        { username: 'john', email: 'john@gmail.com' },
-        { username: 'mary', email: 'mary@gmail.com' }
+        { username: 'gluglu', email: 'glu@gmail.com' },
+        { username: 'bulabula', email: 'bulab@gmail.com' }
     ];
     User.create(users, function (err, result) {
         if (err) {
@@ -23,9 +23,9 @@ router.get('/test', function (req, res, next) {
     });
 
     var insturctors = [
-        { name: 'Tim Cook' },
-        { name: 'Ya Hoo' },
-        { name: 'Lala Lu' }
+        { name: 'Ken Da' },
+        { name: 'Juju Gua' },
+        { name: 'Yamyam Ga' }
     ]
     Instructor.create(insturctors, function (err, result) {
         if (err) {
@@ -34,9 +34,9 @@ router.get('/test', function (req, res, next) {
 
         // create some dummy courses
         var courses = [
-            { name: 'Python', course_number: '001', year: 2016, quarter: 'Spring', instructor: result[0] },
-            { name: 'Javascript', course_number: '002', year: 2016, quarter: 'Spring', instructor: result[1] },
-            { name: 'C++', course_number: '003', year: 2016, quarter: 'Summer', instructor: result[2] }
+            { name: 'Python for programmers', course_number: '001', year: 2016, quarter: 'Spring', instructor: result[0] },
+            { name: 'Javascript, advanced', course_number: '002', year: 2016, quarter: 'Spring', instructor: result[1] },
+            { name: 'C++, Hard', course_number: '003', year: 2016, quarter: 'Summer', instructor: result[2] }
         ];
 
         Course.create(courses, function (err, result) {

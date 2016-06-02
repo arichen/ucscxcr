@@ -6,8 +6,15 @@ angular.module('appServices', [])
 
     .factory('Reviews', ['$http',function($http) {
         return {
-            get : function() {
-                return $http.get('/api/reviews');
+            get : function(page, limit) {
+                var params = {
+                    page : page,
+                    limit : limit,
+                };
+                var config = {
+                    params : params
+                };
+                return $http.get('/api/reviews', config);
             },
             getById : function (id) {
                 return $http.get('/api/review/' + id);

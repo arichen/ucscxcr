@@ -1,6 +1,9 @@
 body {
     padding-top: 5rem;
 }
+.content {
+    padding-bottom: 1rem;
+}
 #searchBar {
     margin-bottom:50px;
 }

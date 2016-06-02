@@ -4,13 +4,34 @@
 
 var controllers = angular.module('appControllers', []);
 
-controllers.controller('homeCtrl', ['$scope', 'Reviews', function ($scope, Reviews) {
-    $scope.previewLimit = 100;
-    
-    Reviews.get()
-        .success(function (data) {
-            $scope.recent = data;
-        });
+controllers.controller('SearchCtrl', ['$scope', '$stateParams', '$state', function ($scope, $stateParams, $state) {
+    $scope.submit = function () {
+        console.log($scope.query);
+        var params = {
+            query : $scope.query
+        }
+        $state.go('browse', params);
+    }
+}]);
+
+controllers.controller('HomeCtrl', ['$scope', 'Reviews', function ($scope, Reviews) {
+    $scope.textLimit = 100;
+
+    $scope.recent = [];
+    $scope.page = 1;
+    $scope.limit = 10;
+    $scope.hasMore = false;
+
+    $scope.loadMore = function () {
+        Reviews.get($scope.page, $scope.limit)
+            .success(function (data) {
+                $scope.hasMore = (data.length == $scope.limit);
+                $scope.page += 1;
+                $scope.recent = $scope.recent.concat(data);
+            });
+    }
+
+    $scope.loadMore();
 }]);
 
 controllers.controller('CourseCtrl', ['$scope', '$stateParams', 'Courses', 'Reviews', function ($scope, $stateParams, Courses, Reviews) {

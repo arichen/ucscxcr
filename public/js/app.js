@@ -14,7 +14,7 @@ var app = angular.module("app", [
     $stateProvider
         .state('home', {
             url: "/",
-            controller: "homeCtrl",
+            controller: "HomeCtrl",
             templateUrl: "templates/home.html"
         })
         .state('course', {

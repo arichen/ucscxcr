@@ -44,11 +44,11 @@
     </ul>
 </nav>
 
-<div class="container">
-    <form id="searchBar" class="form-group">
+<div class="container" ng-controller="SearchCtrl">
+    <form id="searchBar" class="form-group" ng-submit="submit()">
         <div class="input-group">
-            <input type="text" class="form-control" placeholder="Search..." name="query" id="query">
-            <div class="input-group-addon"><a href="#" ng-click=""><i class="fa fa-search" aria-hidden="true"></i></a></div>
+            <input type="text" class="form-control" placeholder="Search course..." name="query" id="query" ng-model="query">
+            <div class="input-group-addon"><a href="#" ng-click="submit()"><i class="fa fa-search" aria-hidden="true"></i></a></div>
         </div>
     </form>
 </div>

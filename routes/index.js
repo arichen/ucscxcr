@@ -84,9 +84,15 @@ router.post('/api/review', function (req, res, next) {
 });
 
 router.get('/api/courses', function (req, res, next) {
+  var keyword = req.query.keyword;
+
+  var find = {};
+  if (keyword) {
+    find.$text = { $search : keyword };
+  }
 
   Course
-      .find()
+      .find(find)
       .populate('instructor')
       .sort({ updated : -1 })
       .exec(function (err, result) {
@@ -98,28 +104,31 @@ router.get('/api/courses', function (req, res, next) {
 
 });
 
-router.get('/api/search', function (req, res, next) {
-  var keyword = req.query.keyword;
-  if (!keyword) {
-    res.send([]);
-  }
-
-  Course
-      .find({
-        $text: { $search : keyword }
-      })
-      .sort({ updated : -1 })
-      .exec(function (err, result) {
-        if (err) {
-          res.send(err);
-        }
-        res.json(result);
-      })
-});
+// router.get('/api/search', function (req, res, next) {
+//   var keyword = req.query.keyword;
+//   if (!keyword) {
+//     res.send([]);
+//   }
+//
+//   Course
+//       .find({
+//         $text: { $search : keyword }
+//       })
+//       .populate('instructor')
+//       .sort({ updated : -1 })
+//       .exec(function (err, result) {
+//         if (err) {
+//           res.send(err);
+//         }
+//         res.json(result);
+//       })
+// });
 
 // application
 router.get('*', function(req, res, next) {
   res.sendFile(__dirname + '/public/index.html'); // load the single view file (angular will handle the page changes on the front-end)
 });
+
+//app.use('/', express.static('public/'));
 
 module.exports = router;

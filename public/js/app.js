@@ -23,7 +23,7 @@ var app = angular.module("app", [
             templateUrl: "templates/course.html"
         })
         .state('browse', {
-            url: "/browse",
+            url: "/browse?keyword",
             controller: "BrowseCtrl",
             templateUrl: "templates/browse.html"
         })

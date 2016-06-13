@@ -30,8 +30,13 @@ angular.module('appServices', [])
 
     .factory('Courses', ['$http', function ($http) {
         return {
-            get : function () {
-                return $http.get('/api/courses');
+            get : function (keyword) {
+                console.log('keyword:', keyword);
+                var params = {
+                    keyword : keyword
+                };
+                var config = { params : params };
+                return $http.get('/api/courses', config);
             },
             getById : function (id) {
                 return $http.get('/api/course/' + id);

@@ -6,10 +6,9 @@ var controllers = angular.module('appControllers', []);
 
 controllers.controller('SearchCtrl', ['$scope', '$stateParams', '$state', function ($scope, $stateParams, $state) {
     $scope.submit = function () {
-        console.log($scope.query);
         var params = {
-            query : $scope.query
-        }
+            keyword : $scope.query
+        };
         $state.go('browse', params);
     }
 }]);
@@ -79,8 +78,9 @@ controllers.controller('ReviewFormCtrl', function ($scope) {
     }
 });
 
-controllers.controller('BrowseCtrl', ['$scope', 'Courses', function ($scope, Courses) {
-    Courses.get().success(function (data) {
+controllers.controller('BrowseCtrl', ['$scope', '$stateParams', 'Courses', function ($scope, $stateParams, Courses) {
+    var keyword = $stateParams.keyword;
+    Courses.get(keyword).success(function (data) {
         $scope.courses = data;
     });
 }]);

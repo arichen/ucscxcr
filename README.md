@@ -4,9 +4,7 @@ A course review website of UCSCx courses. Building with MEAN.
 
 ### Instruction
 Make sure mongodb is running. 
-
 In project folder, run
-
 `nodemon start`
 
 ### Documents
